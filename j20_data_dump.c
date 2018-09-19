@@ -21,6 +21,17 @@ int main( int argc, char *argv[] )
     struct JASON20HZ c;
     FILE *fpin;
 
-
-
+    if (argc != 4 || (fpin = fopen(argv[1], "r")) == NULL) {
+        fprintf(stderr, "usage j20_data_dump input.j20 nstruct baseline\n");
+        fprintf(stderr, "        nstruct (1) - use 2-parameter retracking result \n");
+        fprintf(stderr, "        nstruct (2) - use 3-parameter retracking result \n");
+        fprintf(stderr, "        nstruct (3) - use threshold retracking result \n");
+        fprintf(stderr, " \n");
+        fprintf(stderr, "        baseline (1) - Baseline A \n");
+        fprintf(stderr, "        baseline (2) - Baseline B \n");
+        return EXIT_FAILURE;
+    }
+    
+    nstr  = atoi(argv[2]);
+    bline = atoi(argv[3]);
 }
